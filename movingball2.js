@@ -13,21 +13,22 @@ Universe.addBoundary( Boundary.createRect("bottom",Universe.height, velK));
 
 // 
 var b1 = new Ball(20, "black", 30);
-b1.setpos( new Vector( 300 , Universe.height/2 ) );
+b1.setpos( new Vector( 100 , Universe.height/2 ) );
 b1.setvel( new Vector(200,0) );
 Universe.addObject(b1,"ball");
 //
 var b2 = new Ball(20, "black", 30);
-b2.setpos( new Vector( 500 , Universe.height/2 ) );
+b2.setpos( new Vector( 190 , Universe.height/2 ) );
 b2.setvel( new Vector(200,0) );
 Universe.addObject(b2,"ball");
 
-// b1.connectTo(b2, s1);
-
-var s1 = Spring.create(10,10);
+var s1 = Spring.create(10,100);
 var s2 = Spring.create(20,20);
 
+b1.connectTo(b2, s1, true);
 
+console.log( "Force is");
+console.log(b1.getSpringPullback());
 
 // b = new Ball(20, "black", 30);
 // b.setpos( new Vector( 300 , Universe.height/2 ) );
@@ -45,4 +46,4 @@ var s2 = Spring.create(20,20);
 
 
 Universe.setGravity( new Vector(0,1000) );
-Universe.animate('canvas', 30);
+// Universe.animate('canvas', 5);
